@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "80849480678",
+    "project_id": "found-link",
+    "storage_bucket": "found-link.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:80849480678:android:7b584cec5cce90690e0427",
+        "android_client_info": {
+          "package_name": "com.foundlink.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "80849480678-nte2gc605npivdtmg70nh3piqu6vhrfp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVZofq8vInbFos-yOBtYIWCTIqYCs_wdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "80849480678-mhuj88un9jbkn2ecf7e1mnbghffq07t0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
