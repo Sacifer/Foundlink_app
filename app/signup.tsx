@@ -36,8 +36,7 @@ export default function SignUpScreen() {
 
   // ✅ Google Sign-Up setup
   const [request, response, promptAsync] = Google.useAuthRequest({
-    clientId: "80849480678-nte2gc605npivdtmg70nh3piqu6vhrfp.apps.googleusercontent.com",
-    androidClientId: "80849480678-47hjsulu1oireqj91g067ehnqm4p2gka.apps.googleusercontent.com",
+    androidClientId: "80849480678-o0o9fat05oll6ldhnspcj5ki0htjlo8a.apps.googleusercontent.com",
     webClientId: "80849480678-nte2gc605npivdtmg70nh3piqu6vhrfp.apps.googleusercontent.com",
   });
 
