@@ -12,7 +12,7 @@
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "./android/app/google-services.json",
+      "googleServicesFile": "./google-services.json",
       "package": "com.foundlink.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
