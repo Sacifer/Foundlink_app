@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "80849480678-o0o9fat05oll6ldhnspcj5ki0htjlo8a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.foundlink.app",
+            "certificate_hash": "a7429977dc8e2b77157fbbf8139e15c717bbd46e"
+          }
+        },
+        {
           "client_id": "80849480678-nte2gc605npivdtmg70nh3piqu6vhrfp.apps.googleusercontent.com",
           "client_type": 3
         }
