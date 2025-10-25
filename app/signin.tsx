@@ -1,7 +1,7 @@
 import * as Google from "expo-auth-session/providers/google";
 import { useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
-import { GoogleAuthProvider, signInWithCredential, signInWithEmailAndPassword, UserCredential } from "firebase/auth";
+import { signInWithEmailAndPassword, UserCredential } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
@@ -30,19 +30,18 @@ export default function SignInScreen() {
      webClientId: "80849480678-nte2gc605npivdtmg70nh3piqu6vhrfp.apps.googleusercontent.com",
    });
 
-  useEffect(() => {
+   useEffect(() => {
+    console.log("📱 Google Auth Response:", response);
+    
     if (response?.type === "success") {
+      console.log("✅ Response params:", response.params);
       const { id_token } = response.params;
-      const credential = GoogleAuthProvider.credential(id_token);
-      signInWithCredential(auth, credential)
-        .then(() => {
-          console.log("✅ Google sign-in successful!");
-          router.replace("/(tabs)");
-        })
-        .catch((err) => {
-          console.error("❌ Google sign-in error:", err);
-          Alert.alert("Google sign-in failed", err.message);
-        });
+      // ... rest of code
+    } else if (response?.type === "error") {
+      console.error("❌ Google Auth Error:", response.error);
+      Alert.alert("Google Sign-In Error", response.error?.message || "Unknown error");
+    } else if (response?.type === "cancel") {
+      console.log("⚠️ User cancelled Google sign-in");
     }
   }, [response]);
 

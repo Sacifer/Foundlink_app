@@ -3,10 +3,8 @@ import { useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
 import {
   createUserWithEmailAndPassword,
-  GoogleAuthProvider,
-  signInWithCredential,
   signOut,
-  updateProfile,
+  updateProfile
 } from "firebase/auth";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
@@ -41,32 +39,17 @@ export default function SignUpScreen() {
   });
 
   useEffect(() => {
+    console.log("📱 Google Auth Response:", response);
+    
     if (response?.type === "success") {
+      console.log("✅ Response params:", response.params);
       const { id_token } = response.params;
-      const credential = GoogleAuthProvider.credential(id_token);
-      signInWithCredential(auth, credential)
-        .then(async (userCredential) => {
-          const user = userCredential.user;
-
-          // Create a Firestore user document if not exists
-          await setDoc(
-            doc(db, "users", user.uid),
-            {
-              name: user.displayName ?? "Google User",
-              email: user.email,
-              createdAt: serverTimestamp(),
-              role: "user",
-            },
-            { merge: true }
-          );
-
-          console.log("✅ Google sign-up successful!");
-          router.replace("/(tabs)");
-        })
-        .catch((err) => {
-          console.error("❌ Google sign-up error:", err);
-          Alert.alert("Google sign-up failed", err.message);
-        });
+      // ... rest of code
+    } else if (response?.type === "error") {
+      console.error("❌ Google Auth Error:", response.error);
+      Alert.alert("Google Sign-In Error", response.error?.message || "Unknown error");
+    } else if (response?.type === "cancel") {
+      console.log("⚠️ User cancelled Google sign-in");
     }
   }, [response]);
 
